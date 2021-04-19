@@ -9,4 +9,8 @@ app.get("/", (request, response) => {
   });
 });
 
+app.post("/", (request, response) => {
+  return response.json({ message: "Post ok." });
+});
+
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}.`));
