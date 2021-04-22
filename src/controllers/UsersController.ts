@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { UsersService } from "../services/UsersService";
 
-class UserController {
+class UsersController {
   async create(request: Request, response: Response): Promise<Response> {
     const { email } = request.body;
     const usersService = new UsersService();
@@ -12,4 +12,4 @@ class UserController {
   }
 }
 
-export { UserController };
+export { UsersController };
