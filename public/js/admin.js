@@ -69,3 +69,30 @@ const call = (id) => {
     });
   });
 };
+
+const sendMessage = (id) => {
+  const text = document.getElementById(`send_message_${id}`);
+
+  const params = {
+    text: text.value,
+    user_id: id,
+  };
+
+  socket.emit("admin_send_message", params);
+
+  const divMessages = document.getElementById(`allMessages${id}`);
+
+  const createDiv = document.createElement("div");
+
+  createDiv.className = "admin_message_admin";
+
+  createDiv.innerHTML = `Atendente: <span>${params.text}</span>`;
+
+  createDiv.innerHTML += `<span class="admin_data">${dayjs().format(
+    "DD/MM/YYYY HH:mm:ss"
+  )}</span>`;
+
+  divMessages.appendChild(createDiv);
+
+  text.value = "";
+};
